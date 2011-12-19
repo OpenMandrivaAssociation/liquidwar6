@@ -13,6 +13,7 @@ BuildRequires:	gtk+2-devel
 BuildRequires:	guile-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	libgomp-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	MesaGL-devel
 BuildRequires:	MesaGLU-devel
 BuildRequires:	png-devel
