@@ -14,6 +14,7 @@ BuildRequires:	guile-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	libgomp-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-static-devel
 BuildRequires:	MesaGL-devel
 BuildRequires:	MesaGLU-devel
 BuildRequires:	png-devel
