@@ -1,5 +1,5 @@
 Name:		liquidwar6
-Version:	0.0.12beta
+Version:	0.0.13beta
 Release:	%mkrel 1
 Summary:	Unique multiplayer wargame
 License:	GPLv3
