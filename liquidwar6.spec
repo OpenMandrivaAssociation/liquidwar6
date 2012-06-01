@@ -1,6 +1,6 @@
 Name:		liquidwar6
 Version:	0.0.13beta
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Unique multiplayer wargame
 License:	GPLv3
 Group:		Games/Arcade
@@ -25,9 +25,6 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	zlib-devel
-BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}-buildroot
-Requires(post):	info-install
-Requires(preun): info-install
 
 %description
 Liquid War 6 is a unique multiplayer wargame. Your army is a blob of
@@ -62,16 +59,17 @@ desktop-file-install	--vendor="" \
 %find_lang %{name}
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
+%if %{mdvver} < 201200
 %post
 %_install_info %{name}*.info
 
 %preun
 %_remove_install_info %{name}*.info
+%endif
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS README NEWS COPYING
 %{_bindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
