@@ -6,6 +6,7 @@ License:	GPLv3
 Group:		Games/Arcade
 URL:		http://www.gnu.org/software/liquidwar6/
 Source0:	http://ftp.gnu.org/gnu/liquidwar6/%{name}-%{version}.tar.gz
+Patch0:		liquidwar6-0.0.13beta-guile2.0.patch
 BuildRequires:	curl-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	expat-devel
@@ -38,6 +39,9 @@ Warning! The game is still under heavy development and may be unstable.
 
 %prep
 %setup -q
+%if %{mdvver} >= 201200
+%patch0 -p1
+%endif
 
 %build
 # Don't build static and shared libraries, build only game binary
