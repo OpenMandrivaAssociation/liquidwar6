@@ -1,0 +1,12 @@
+diff -urN liquidwar6-0.0.13beta/src/Makefile.in liquidwar6-0.0.13beta-patched/src/Makefile.in
+--- liquidwar6-0.0.13beta/src/Makefile.in	2011-12-23 23:01:59.000000000 +0100
++++ liquidwar6-0.0.13beta-patched/src/Makefile.in	2012-06-01 16:26:19.969774879 +0200
+@@ -338,7 +338,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ @ALLINONE_FALSE@AM_CFLAGS = @LW6_CFLAGS@ -I${srcdir}/lib @GUILE_CFLAGS@
+-@ALLINONE_TRUE@AM_CFLAGS = @LW6_CFLAGS@ -I${srcdir}/lib @SDL_CFLAGS@
++@ALLINONE_TRUE@AM_CFLAGS = @LW6_CFLAGS@ -I${srcdir}/lib @SDL_CFLAGS@ @GUILE_CFLAGS@
+ @ALLINONE_FALSE@AM_LDFLAGS = @LW6_LDFLAGS@
+ @ALLINONE_TRUE@AM_LDFLAGS = @LW6_LDFLAGS@ @SDL_LIBS@ @SDL_LIBS_SOUND@
+ # Note: libgpm seem to be required only when linking statically
