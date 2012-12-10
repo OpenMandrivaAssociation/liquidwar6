@@ -82,3 +82,20 @@ desktop-file-install	--vendor="" \
 %{_mandir}/man6/*
 %{_infodir}/%{name}*
 
+
+
+%changelog
+* Fri Jun 01 2012 Andrey Bondrov <abondrov@mandriva.org> 0.0.13beta-2mdv2012.0
++ Revision: 801822
+- Add patch to fix build with guile 2.0
+- Spec cleanup
+
+* Mon Jan 02 2012 Andrey Bondrov <abondrov@mandriva.org> 0.0.13beta-1
++ Revision: 748703
+- Update BuildRequires
+- New version 0.0.13beta
+
+* Tue Dec 20 2011 Andrey Bondrov <abondrov@mandriva.org> 0.0.12beta-1
++ Revision: 743888
+- imported package liquidwar6
+
