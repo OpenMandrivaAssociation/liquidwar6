@@ -1,26 +1,25 @@
 Name:		liquidwar6
-Version:	0.0.13beta
-Release:	%mkrel 2
+Version:	0.4.3681
+Release:	1
 Summary:	Unique multiplayer wargame
 License:	GPLv3
 Group:		Games/Arcade
 URL:		http://www.gnu.org/software/liquidwar6/
 Source0:	http://ftp.gnu.org/gnu/liquidwar6/%{name}-%{version}.tar.gz
-Patch0:		liquidwar6-0.0.13beta-guile2.0.patch
 BuildRequires:	curl-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	expat-devel
-BuildRequires:	gtk+2-devel
+BuildRequires:	gtk+2.0-devel
 BuildRequires:	guile-devel
 BuildRequires:	jpeg-devel
-BuildRequires:	libgomp-devel
+BuildRequires:	gomp-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libstdc++-static-devel
-BuildRequires:	mesagl-devel
-BuildRequires:	mesaglu-devel
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
 BuildRequires:	png-devel
 BuildRequires:	readline-devel
-BuildRequires:	SDL-devel
+BuildRequires:	pkgconfig(sdl)
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel
@@ -39,11 +38,11 @@ Warning! The game is still under heavy development and may be unstable.
 
 %prep
 %setup -q
-%if %{mdvver} >= 201200
-%patch0 -p1
-%endif
 
 %build
+export CFLAGS="%{optflags} -fno-strict-aliasing"
+export CXXFLAGS="%{optflags} -fno-strict-aliasing"
+
 # Don't build static and shared libraries, build only game binary
 %configure2_5x --enable-allinone
 %make
@@ -65,37 +64,13 @@ desktop-file-install	--vendor="" \
 %clean
 %__rm -rf %{buildroot}
 
-%if %{mdvver} < 201200
-%post
-%_install_info %{name}*.info
-
-%preun
-%_remove_install_info %{name}*.info
-%endif
-
 %files -f %{name}.lang
 %doc AUTHORS README NEWS COPYING
 %{_bindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/%{name}-%{version}
+%{_datadir}/%{name}-0.4
 %{_datadir}/pixmaps/%{name}.*
 %{_mandir}/man6/*
 %{_infodir}/%{name}*
-
-
-
-%changelog
-* Fri Jun 01 2012 Andrey Bondrov <abondrov@mandriva.org> 0.0.13beta-2mdv2012.0
-+ Revision: 801822
-- Add patch to fix build with guile 2.0
-- Spec cleanup
-
-* Mon Jan 02 2012 Andrey Bondrov <abondrov@mandriva.org> 0.0.13beta-1
-+ Revision: 748703
-- Update BuildRequires
-- New version 0.0.13beta
-
-* Tue Dec 20 2011 Andrey Bondrov <abondrov@mandriva.org> 0.0.12beta-1
-+ Revision: 743888
-- imported package liquidwar6
-
+%{_libexecdir}/liquidwar6-doc
+%{_libexecdir}/liquidwar6-xml
