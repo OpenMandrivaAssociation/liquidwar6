@@ -1,6 +1,6 @@
 Name:		liquidwar6
 Version:	0.4.3681
-Release:	1
+Release:	2
 Summary:	Unique multiplayer wargame
 License:	GPLv3
 Group:		Games/Arcade
