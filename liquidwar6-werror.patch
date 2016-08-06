@@ -1,0 +1,13 @@
+diff --git a/liquidwar6/src/lib/lw6-funcssys.c b/liquidwar6/src/lib/lw6-funcssys.c
+index 7e1edd5..6c98c47 100644
+--- liquidwar6/src/lib/lw6-funcssys.c
++++ liquidwar6/src/lib/lw6-funcssys.c
+@@ -1376,7 +1376,7 @@ _scm_lw6sys_log (SCM level, SCM message)
+   c_message = lw6scm_utils_to_0str (sys_context, message);
+   if (c_message)
+     {
+-      lw6sys_log (sys_context, c_level, __FILE__, __LINE__, "%s", c_message);
++      lw6sys_log (sys_context, c_level, __FILE__, __LINE__, __FUNCTION__, "%s", c_message);
+       LW6SYS_FREE (sys_context, c_message);
+     }
+ 

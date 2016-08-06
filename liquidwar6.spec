@@ -1,11 +1,14 @@
+%define _disable_rebuild_configure 1
+
 Name:		liquidwar6
-Version:	0.4.3681
-Release:	2
+Version:	0.6.3902
+Release:	1
 Summary:	Unique multiplayer wargame
 License:	GPLv3
 Group:		Games/Arcade
 URL:		http://www.gnu.org/software/liquidwar6/
 Source0:	http://ftp.gnu.org/gnu/liquidwar6/%{name}-%{version}.tar.gz
+Patch1:		liquidwar6-werror.patch
 BuildRequires:	curl-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	expat-devel
@@ -38,8 +41,11 @@ Warning! The game is still under heavy development and may be unstable.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
+export CC=gcc
+export CXX=g++
 export CFLAGS="%{optflags} -fno-strict-aliasing"
 export CXXFLAGS="%{optflags} -fno-strict-aliasing"
 
@@ -68,7 +74,7 @@ desktop-file-install	--vendor="" \
 %doc AUTHORS README NEWS COPYING
 %{_bindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/%{name}-0.4
+%{_datadir}/%{name}-0.6
 %{_datadir}/pixmaps/%{name}.*
 %{_mandir}/man6/*
 %{_infodir}/%{name}*
