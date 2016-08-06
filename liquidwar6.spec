@@ -28,6 +28,7 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	zlib-devel
+BuildRequires:	texinfo
 
 %description
 Liquid War 6 is a unique multiplayer wargame. Your army is a blob of
