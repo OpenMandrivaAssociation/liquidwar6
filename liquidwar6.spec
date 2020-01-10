@@ -42,7 +42,7 @@ Warning! The game is still under heavy development and may be unstable.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 export CC=gcc
