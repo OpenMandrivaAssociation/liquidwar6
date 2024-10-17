@@ -6,7 +6,7 @@ Release:	1
 Summary:	Unique multiplayer wargame
 License:	GPLv3
 Group:		Games/Arcade
-URL:		http://www.gnu.org/software/liquidwar6/
+URL:		https://www.gnu.org/software/liquidwar6/
 Source0:	http://ftp.gnu.org/gnu/liquidwar6/%{name}-%{version}.tar.gz
 Patch1:		liquidwar6-werror.patch
 BuildRequires:	curl-devel
