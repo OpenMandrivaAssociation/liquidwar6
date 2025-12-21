@@ -9,6 +9,11 @@ Group:		Games/Arcade
 URL:		https://www.gnu.org/software/liquidwar6/
 Source0:	http://ftp.gnu.org/gnu/liquidwar6/%{name}-%{version}.tar.gz
 Patch1:		liquidwar6-werror.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	curl-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	expat-devel
